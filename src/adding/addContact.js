@@ -1,15 +1,17 @@
 // import { addContact } from "../../crud/add_contact.js";
 
 // const addButton = document.getElementById("addButton");
-// const contactList = document.getElementById("contactList");
 
-// // CREATE MODAL
+// /* =====================
+//    CREATE MODAL
+// ===================== */
 // const modal = document.createElement("div");
-// modal.classList.add("modal", "hidden");
+// modal.className = "modal hidden";
 
 // const form = document.createElement("form");
-// form.classList.add("modal-content");
+// form.className = "modal-content";
 
+// /* INPUTS */
 // const nameInput = document.createElement("input");
 // nameInput.placeholder = "Name";
 // nameInput.required = true;
@@ -21,42 +23,50 @@
 // const emailInput = document.createElement("input");
 // emailInput.placeholder = "Email (optional)";
 
+// /* BUTTON WRAPPER */
+// const buttonWrapper = document.createElement("div");
+// buttonWrapper.className = "modal-buttons";
+
+// /* BACK BUTTON */
+// const backBtn = document.createElement("button");
+// backBtn.type = "button"; // IMPORTANT
+// backBtn.textContent = "Back";
+
+// /* SAVE BUTTON */
 // const saveBtn = document.createElement("button");
 // saveBtn.type = "submit";
 // saveBtn.textContent = "Save";
 
-// form.append(nameInput, numberInput, emailInput, saveBtn);
+// /* APPEND */
+// buttonWrapper.append(backBtn, saveBtn);
+// form.append(nameInput, numberInput, emailInput, buttonWrapper);
 // modal.appendChild(form);
 // document.body.appendChild(modal);
 
-// // EVENTS
-// addButton.addEventListener("click", () => {
-//   console.log("Add button clicked");
-//   modal.classList.toggle("hidden");
-//   if (!modal.classList.contains("hidden")) {
-//     console.log("Modal opened");
-//     nameInput.focus();
-//   } else {
-//     console.log("Modal closed");
-//   }
-// });
-
-// // Close modal when clicking outside
-// modal.addEventListener("click", e => {
-//   if (e.target === modal) {
-//     console.log("Clicked outside modal, closing");
-//     modal.classList.add("hidden");
-//   }
-// });
-
-// // Render contact in list
-// function renderContact(contact) {
-//   console.log("Rendering contact:", contact);
-//   const li = document.createElement("li");
-//   li.textContent = `${contact.name} - ${contact.number}${contact.email ? ` (${contact.email})` : ""}`;
-//   li.dataset.id = contact.id;
-//   contactList.appendChild(li);
+// /* =====================
+//    FUNCTIONS
+// ===================== */
+// function openModal() {
+//   modal.classList.remove("hidden");
+//   nameInput.focus();
 // }
+
+// function closeModal() {
+//   form.reset();
+//   modal.classList.add("hidden");
+// }
+
+// /* =====================
+//    EVENTS
+// ===================== */
+// addButton.addEventListener("click", openModal);
+
+// backBtn.addEventListener("click", closeModal);
+
+// // Click outside modal
+// modal.addEventListener("click", e => {
+//   if (e.target === modal) closeModal();
+// });
 
 // // Submit form
 // form.addEventListener("submit", async e => {
@@ -71,21 +81,14 @@
 //   if (!contact.name || !contact.number) return;
 
 //   try {
-//     // Add contact to DB
-//     const newContact = await addContact(contact);
+//     await addContact(contact);
+//     closeModal();
 
-//     // Render contact in UI
-//     renderContact(newContact);
-
-//     // Reset form
-//     form.reset();
-
-//     // Automatically close modal
-//     modal.classList.add("hidden");
-//     console.log("Modal closed after saving contact");
+//     // OPTIONAL: refresh list
+//     // displayContacts();
 
 //   } catch (err) {
 //     console.error("Error adding contact:", err);
-//     alert(err);
+//     alert("Failed to add contact");
 //   }
 // });
