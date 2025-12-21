@@ -5,15 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="src/adding/addContact.css">
-    <link rel="stylesheet" href="src/viewing/view.css">
+    <link rel="stylesheet" href="src/view.css">
 
 </head>
 <body>
     <header id="header">
         <input type="text" id="textInput" placeholder="Search contacts...">
-        <button id="addButton" type="button">+</button>
+        <button hidden id="addButton" type="button" onclick="myFunction()">+</button>
     </header>
+
+
+
+    <form id="formvalidation" style="display:none">
+        <div id="forms">
+
+            <label class="container">Male
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Female
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        </label>
+
+
+            <div>
+                <img src="" alt="avatar" srcset="">
+                
+            </div>
+
+        </div>
+        
+
+        <div id="forms">
+
+
+            
+            
+            <input type="" id="number" placeholder="Search contacts...">
+
+        </div>
+    </form>
 
 
 
@@ -23,10 +56,9 @@
 
         </div>
     </main>
-    
-    
-<script type="module" src="./src/adding/addContact.js"></script>
-<script type="module" src="./src/viewing/viewContact.js"></script>
+
+<script src="./src/add/formadd.js"></script>
+<script type="module" src="./src/viewContact.js"></script>
 
 </body>
 

@@ -1,4 +1,4 @@
-import { getAllContacts } from "../../crud/view_contact.js";
+import { getAllContacts } from "../crud/view_contact.js";
 
 const outputDiv = document.getElementById("result");
 
