@@ -14,45 +14,75 @@
         <button hidden id="addButton" type="button" onclick="myFunction()">+</button>
     </header>
 
+    <main>
 
+        <div>
 
-    <form id="formvalidation" style="display:none">
-        <div id="forms">
-
+            <form id="formvalidation">
+            <div id="forms">
             <label class="container">Male
-        <input type="checkbox" checked="checked">
-        <span class="checkmark"></span>
-        </label>
+            <input type="radio" checked="checked" onclick="male()">
+            <span class="checkmark"></span>
+            </label>
 
-        <label class="container">Female
-        <input type="checkbox">
-        <span class="checkmark"></span>
-        </label>
+            <label class="container">Female
+            <input type="radio">
+            <span class="checkmark"></span>
+            </label>
 
 
-            <div>
-                <img src="" alt="avatar" srcset="">
-                
             </div>
 
-        </div>
+
+            
+                <!-- This div is for Male kapag na click yung radio button this will open  -->
+                <div id="maleOptions">
+                    <!-- Choices -->
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/690e9a4406bf0ff1e34baaed91758148_gedme9.jpg" alt="avatar" srcset="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/6a8df424f54a00751e4be455208c3bde_pxkjcp.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/351104e9917315891fe68d443f71ea49_sweyud.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/975dfcd5fccad750c3c614340e29717e_pphunr.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/2a79f34b05f18bc3ed1392fe35f40d80_liekem.jpg" alt="">
+                </div>
+
+                <!-- This div is for Female kapag na click yung radio button this will open  -->
+                <div id="femaleOptions">
+                    <!-- Choices -->
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415297/688ea898aac812ba02bfeb1189f74c2d_c3ybcx.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/princia-funny-bunny-648553245437bp_p00c0o.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/33fa3847a939497e00934747c7a34b0a_qf0614.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/izl2ycz1p5c91_m8tx35.jpg" alt="">
+                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415294/75844acfea6b242f4e6300535f996eef_j3e67g.jpg" alt="">
+
+                </div>
+            
+
+            <div id="forms">
+
+
+                <input type="text" id="name" placeholder="Name">
+                <input type="text" id="email" placeholder="Email Address: ">                
+                <input type="" id="number" placeholder="Phone Number">
+
+            </div>
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
         
 
-        <div id="forms">
-
-
-            
-            
-            <input type="" id="number" placeholder="Search contacts...">
-
         </div>
-    </form>
-
-
-
-    <main>
         <div id="result">
             <!-- Inserted content here -->
+
+        </div>
+
+        <!-- Details of that contact person -->
+
+        <div class="details">
+            <!-- Inserted content here -->
+             
+
 
         </div>
     </main>

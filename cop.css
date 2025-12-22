@@ -5,6 +5,7 @@ body{
     padding: 0;
 }
 
+
 header{
     display: flex;
     justify-content: center;
@@ -13,6 +14,9 @@ header{
     padding: 10px;
     gap: 15px;
 }
+
+
+
 
 input {
     border-radius: 10px;
@@ -41,33 +45,11 @@ button:hover{
     color: white;
 }
 
-
-#maleOptions{
+main{
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
-    color: #333;
-    padding: 10px;
-    gap: 15px;    
 
 }
-
-#femaleOptions{
-
-    display: flex;
-    justify-content: center;
-    background-color: #ffffff;
-    color: #333;
-    padding: 10px;
-    gap: 15px;
-}
-
-img{
-    width: 50px;
-    height: 50px;
-}
-
-
 
 
 @media screen and (max-width: 600px) {
@@ -85,4 +67,5 @@ img{
     }
     
 }
+
 
