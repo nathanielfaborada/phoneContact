@@ -8,15 +8,14 @@ function myFunction() {
   }
 }
 
-function male(){
-  const div = document.getElementById("maleOptions");
-
-
-  if (div.style.display === "none" || div.style.display === "") {
-    div.style.display = "block";
-  } else {
-    div.style.display = "none";
-  }
-
+function showMale() {
+    document.getElementById("maleOptions").style.display = "";
+    document.getElementById("femaleOptions").style.display = "none";
 }
+
+function showFemale() {
+    document.getElementById("maleOptions").style.display = "none";
+    document.getElementById("femaleOptions").style.display = "";
+}
+
 
