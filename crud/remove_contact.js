@@ -1,12 +1,12 @@
 import { getStore } from "../database/contacts_db.js";
 
 export function removeContact(id) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     if (id === undefined || id === null) {
       return reject("Invalid contact ID");
     }
 
-    const store = getStore("readwrite");
+    const store = await getStore("readwrite");
     const request = store.delete(id);
 
     request.onsuccess = () => {

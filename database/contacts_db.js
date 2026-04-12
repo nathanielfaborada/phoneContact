@@ -26,7 +26,7 @@ export function openDB() {
       // Handle version change from other tabs
       db.onversionchange = () => {
         db.close();
-        alert("Database is outdated, please reload the page.");
+        Toastify({ text: "Database is outdated, please reload the page.", duration: 5000, style: { background: "#f59e0b", borderRadius: "8px" } }).showToast();
       };
 
       console.log("Database opened successfully:", db);

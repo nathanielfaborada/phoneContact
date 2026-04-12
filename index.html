@@ -6,83 +6,93 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="src/view.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 <body>
     <header id="header">
         <input type="text" id="textInput" placeholder="Search contacts...">
-        <button hidden id="addButton" type="button" onclick="myFunction()">+</button>
+        <button hidden id="addButton" type="button">+</button>
     </header>
 
     <main>
 
-        <div>
+        <!-- Modal Overlay -->
+        <div id="modalOverlay">
+            <div id="modalBox">
+                <button id="closeModal" type="button">&times;</button>
 
-            <form id="formvalidation">
-                <div id="forms">
-                <label class="container">Male
-                    <input type="radio" name="gender" onclick="showMale()">
-                </label>
+                <form id="formvalidation">
+                    <!-- Avatars are rendered by formadd.js -->
+                    <div id="avatarOptions"></div>
 
-                <label class="container">Female
-                    <input type="radio" name="gender" onclick="showFemale()">
-                </label>
+                    <div id="inputField">
+                        <input type="text" id="link" placeholder="Profile Link Image">
+                        <input type="text" id="name" placeholder="Name">
+                        <input type="text" id="email" placeholder="Email Address:">
+                        <input type="tel" id="number" placeholder="Phone Number">
+                    </div>
 
-                </div>
-                <!-- This div is for Male kapag na click yung radio button this will open  -->
-                <div id="maleOptions">
-                    <!-- Choices -->
-                    <img class="avatar-pick" src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/690e9a4406bf0ff1e34baaed91758148_gedme9.jpg" alt="avatar" srcset="">
-                    <img class="avatar-pick" src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/6a8df424f54a00751e4be455208c3bde_pxkjcp.jpg" alt="">
-                    <img class="avatar-pick" src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/351104e9917315891fe68d443f71ea49_sweyud.jpg" alt="">
-                    <img class="avatar-pick" src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/975dfcd5fccad750c3c614340e29717e_pphunr.jpg" alt="">
-                    <img class="avatar-pick" src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766413822/2a79f34b05f18bc3ed1392fe35f40d80_liekem.jpg" alt="">
-                </div>
-
-                <!-- This div is for Female kapag na click yung radio button this will open  -->
-                <div id="femaleOptions">
-                    <!-- Choices -->
-                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415297/688ea898aac812ba02bfeb1189f74c2d_c3ybcx.jpg" alt="">
-                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/princia-funny-bunny-648553245437bp_p00c0o.jpg" alt="">
-                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/33fa3847a939497e00934747c7a34b0a_qf0614.jpg" alt="">
-                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415295/izl2ycz1p5c91_m8tx35.jpg" alt="">
-                    <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1766415294/75844acfea6b242f4e6300535f996eef_j3e67g.jpg" alt="">
-
-                </div>
-            
-
-            <div id="inputField">
-
-                <input type="link" id="link" placeholder="Profile Link Image">
-                <input type="text" id="name" placeholder="Name">
-                <input type="text" id="email" placeholder="Email Address: ">                
-                <input type="" id="number" placeholder="Phone Number">
-
+                    <button type="submit">Add</button>
+                    <button type="button" id="resetButton">Reset</button>
+                </form>
             </div>
-
-            <button type="submit">Add</button>
-            <button type="reset">Cancel</button>
-        </form>
-        
-
         </div>
         <div id="result">
             <!-- Inserted content here -->
 
         </div>
 
-        <!-- Details of that contact person -->
+        <!-- Details Modal -->
+        <div id="detailsOverlay">
+            <div id="detailsBox">
+                <button id="closeDetails" type="button">&times;</button>
 
-        <div class="details">
-            <!-- Inserted content here -->
-             
+                <!-- View mode -->
+                <div id="detailsView">
+                    <img id="detailsPhoto" src="" alt="Profile">
+                    <h2 id="detailsName"></h2>
+                    <p id="detailsNumber"></p>
+                    <p id="detailsEmail"></p>
+                    <div class="details-actions">
+                        <button id="detailsEditBtn" type="button">Update</button>
+                        <button id="detailsDeleteBtn" type="button">Delete</button>
+                    </div>
+                </div>
 
+                <!-- Delete confirmation -->
+                <div id="detailsConfirm" style="display:none">
+                    <p id="confirmText"></p>
+                    <div class="details-actions">
+                        <button id="confirmYesBtn" type="button">Yes, Delete</button>
+                        <button id="confirmNoBtn"  type="button">Cancel</button>
+                    </div>
+                </div>
 
+                <!-- Edit mode -->
+                <div id="detailsEdit" style="display:none">
+                    <form id="editForm">
+                        <!-- Avatars rendered by viewContact.js -->
+                        <div id="editAvatarOptions"></div>
+
+                        <div id="editInputField">
+                            <input type="text" id="editLink"   placeholder="Profile Link Image">
+                            <input type="text" id="editName"   placeholder="Name">
+                            <input type="text" id="editEmail"  placeholder="Email Address:">
+                            <input type="tel"  id="editNumber" placeholder="Phone Number">
+                        </div>
+
+                        <button type="submit">Save</button>
+                        <button type="button" id="editCancelBtn">Cancel</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
 
-<script src="./src/add/formadd.js"></script>
-<script type="module" src="./src/viewContact.js"></script>
+<script type="module" src="./src/add/formadd.js"></script>
+<script type="module" src="./src/viewdetails/viewContact.js"></script>
 
 </body>
 

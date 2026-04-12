@@ -42,24 +42,14 @@ button:hover{
 }
 
 
-#maleOptions{
+#avatarOptions {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: #F0F2F5;
-    color: #333;
+    border-radius: 10px;
     padding: 10px;
-    gap: 15px;    
-
-}
-
-#femaleOptions{
-
-    display: flex;
-    justify-content: center;
-    background-color: #F0F2F5;
-    color: #333;
-    padding: 10px;
-    gap: 15px;
+    gap: 10px;
 }
 
 .avatar-pick {
@@ -91,19 +81,212 @@ img{
 
 
 
+#result {
+    display: flex;
+    justify-content: center;
+}
+
+/* ── Details Modal ── */
+#detailsOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+#detailsOverlay.open {
+    display: flex;
+}
+
+#detailsBox {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 24px 24px;
+    width: 90%;
+    max-width: 360px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#closeDetails {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    padding: 0;
+    line-height: 1;
+}
+
+#closeDetails:hover {
+    color: #e53e3e;
+    background: none;
+}
+
+#detailsView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+#detailsPhoto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+#detailsName {
+    margin: 0;
+    font-size: 20px;
+}
+
+#detailsNumber,
+#detailsEmail {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+#detailsEdit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#editForm input {
+    max-width: 100%;
+}
+
+.details-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    width: 100%;
+    justify-content: center;
+}
+
+#detailsDeleteBtn {
+    background-color: #fee2e2;
+    color: #e53e3e;
+}
+
+#detailsDeleteBtn:hover {
+    background-color: #e53e3e;
+    color: white;
+}
+
+#detailsConfirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+#confirmText {
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+#confirmYesBtn {
+    background-color: #e53e3e;
+    color: white;
+}
+
+#confirmYesBtn:hover {
+    background-color: #c53030;
+}
+
+/* ── Add Modal ── */
+#modalOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalOverlay.open {
+    display: flex;
+}
+
+#modalBox {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#closeModal {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    padding: 0;
+    line-height: 1;
+}
+
+#closeModal:hover {
+    color: #e53e3e;
+    background: none;
+}
+
+#formvalidation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#inputField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#inputField input {
+    max-width: 100%;
+}
+
 @media screen and (max-width: 600px) {
     button{
         display: block;
     }
 
-    
-    #forms{
-        display: flex;
-        justify-content: center;
-        color: #333;
-        padding: 10px;
-        gap: 15px;
-    }
     
 }
 

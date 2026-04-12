@@ -1,11 +1,12 @@
 import { getStore } from "../database/contacts_db.js";
 
-export function addContact({ name, number, email }) {
+export function addContact({ name, number, email, photo }) {
   return new Promise(async (resolve, reject) => {
     // Validate inputs
     name = name?.trim();
     number = number?.trim();
     email = email?.trim();
+    photo = photo?.trim();
 
     if (!name || !number) return reject("Name and number are required");
     if (!/^\d+$/.test(number)) return reject("Number must be digits only");
@@ -15,11 +16,11 @@ export function addContact({ name, number, email }) {
       const store = await getStore("readwrite"); // ensures DB is ready
       console.log("Got object store:", store);
 
-      const request = store.add({ name, number, email });
+      const request = store.add({ name, number, email, photo });
 
       request.onsuccess = () => {
-        console.log("Contact added:", { id: request.result, name, number, email });
-        resolve({ id: request.result, name, number, email });
+        console.log("Contact added:", { id: request.result, name, number, email, photo });
+        resolve({ id: request.result, name, number, email, photo });
       };
 
       request.onerror = () => {
